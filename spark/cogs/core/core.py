@@ -41,16 +41,15 @@ class Core(commands.Cog, name="Core"):
     # region Embed Command
 
     @commands.hybrid_command(name="embed")
-    @commands.check(lambda ctx: ctx.interaction is not None)
-    @commands.is_owner()
-    @private()
-    async def embed(self, ctx: commands.Context, description: str, title: str = None):
+    # @commands.check(lambda ctx: ctx.interaction is not None)
+    # @commands.is_owner()
+    # @private()
+    async def embed(self, ctx: commands.Context, description: str):
         """Send messages in embed format."""
         await ctx.defer(ephemeral=True)
 
-        await ctx.channel.get_partial_message(ctx.message.id).delete()
+        # await ctx.channel.get_partial_message(ctx.message.id).delete()
         await ctx.send(embed=create_embed(
-            title=title,
             description=description
         ))
 
