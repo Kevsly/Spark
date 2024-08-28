@@ -1,0 +1,4 @@
+.idea
+.env
+spark/logs/
+**/__pycache__
